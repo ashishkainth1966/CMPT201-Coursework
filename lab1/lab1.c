@@ -32,7 +32,8 @@ int main() {
   }
 
   // Printing message to the terminal if getline failed or end of file is reached
-  printf("Getline failed or end of file reached! \n");
+  perror("Getline failed or end of file reached! \n");
+  exit(EXIT_FAILURE);
 
   free(line);
 }
