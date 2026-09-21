@@ -28,10 +28,10 @@ int main() {
       printf("%s\n", token);
       token = strtok_r(NULL, delim, &saveptr);
     }
-    printf("Please enter some text:");
+    printf("Please enter some text: ");
   }
 
-  // Printing message to the terminal if getline failed or end of file is reached
+  // Printing error message to the terminal if getline failed or end of file is reached
   perror("Getline failed or end of file reached! \n");
   exit(EXIT_FAILURE);
 
