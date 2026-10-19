@@ -142,7 +142,7 @@ int main(void) {
  * Case II: only adjacent right block in memory is free
  * Update the newly freed block's struct header pointer size with it's size equal to the sum of
  * size of newly freed block and the adjacent right free block's size
- * Point next of this coalasced free to the head of the free blocks linked list
+ * Point next of this coalesced free block to the head of the free blocks linked list
  * Update the head of the linked list to this new coalasced freed block
  * Loop through the linked list and stop at the block whose's next matches the adjacent right
  * block pointer stored
