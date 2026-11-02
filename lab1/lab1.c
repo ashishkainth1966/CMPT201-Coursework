@@ -9,12 +9,19 @@ int main() {
 
   // Initializing the getline input
   char *line = NULL;
-  size_t length = 0;
+  ssize_t length = 0;
+
+  char *array[20];
+  int count = 0;
 
   printf("Please enter some text: ");
 
   // Intializing a while loop to continue accepting user inputs
-  while (getline(&line, &length, stdin) != -1) {
+  while ((length = read(0, &length, stdin)) != -1) {
+    if (strchr(line, '&') != NULL) {
+      line[length - 1] = '\0';
+    }
+
     printf("Tokens:\n");
 
     // Tokening the user entered string
@@ -25,9 +32,15 @@ int main() {
     char *token = strtok_r(str, delim, &saveptr);
 
     while (token != NULL) {
-      printf("%s\n", token);
+      array[count] = token;
+      count++;
       token = strtok_r(NULL, delim, &saveptr);
     }
+
+    for (int i = 0; i < count; i++) {
+      printf("%s\n", array[i]);
+    }
+
     printf("Please enter some text: ");
   }
 
